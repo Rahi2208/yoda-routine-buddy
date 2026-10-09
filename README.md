@@ -1,13 +1,14 @@
 # YODA(YOu're Doing Amazing)
-We have all those time when we feel dull, boring and lonely when doing your routine. Hours of sitting in front of your computer to code a project, writing an essay, or even organizing your work has become a painfully activities that you pray to do less. Burned out because of a boring workflow is not a rare thing to occur, so we create a YODA (You're Doing Amazing), YODA is your routine buddy that will helps you maintain your mood while still helps you ace your deadlines. 
+We all have those times when we feel dull, bored, and lonely while doing our routine. Hours of sitting in front of a computer to code a project, write an essay, or even organize our work can turn into painful activities we wish we could do less. Burning out because of a boring workflow is not rare, so we created YODA (You're Doing Amazing). YODA is your routine buddy that helps you keep your mood up while still acing your deadlines.
 
 ## Features
-It is a desktop pet that can do incredible things to keep you happy while you dealing with complicated and boring tasks. 
-- By adding deadlines, YODA pet can be your trustworty partner for your time management, by constantly reminding you even when you are not aware of it.
-- it also creating a focus period for you by providing interesting and structured timer specially design for time blocking
--  and what is a good buddy when it doesn't care for your health and keep you going while you at the tip of giving up.
+YODA is a desktop pet that does incredible things to keep you happy while you're dealing with complicated and boring tasks.
 
-![this is image](https://github.com/Rahi2208/routine-buddy/blob/main/LOCK%20IN%20_%20EXAM%20PREPARATION%20_.jpg)
+- **Deadline reminders:** Add your deadlines, and YODA becomes your trustworthy time-management partner, reminding you even when you've lost track of time.
+- **Focus timer:** YODA helps you create focus periods with a structured timer designed for time blocking.
+- **Health reminders:** What kind of buddy would YODA be if it didn't care about your health? It reminds you to take breaks and keeps you going when you're on the verge of giving up.
+
+![this is image](https://github.com/Rahi2208/routine-buddy/blob/main/docs/images/locked-in.jpg?raw=true)
 
 
 ## Tech Stack
