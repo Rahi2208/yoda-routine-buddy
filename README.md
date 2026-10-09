@@ -1,13 +1,12 @@
-#YODA(YOu're Doing Amazing)
+# YODA(YOu're Doing Amazing)
 We have all those time when we feel dull, boring and lonely when doing your routine. Hours of sitting in front of your computer to code a project, writing an essay, or even organizing your work has become a painfully activities that you pray to do less. Burned out because of a boring workflow is not a rare thing to occur, so we create a YODA (You're Doing Amazing), YODA is your routine buddy that will helps you maintain your mood while still helps you ace your deadlines. 
 
-##Features
+## Features
 It is a desktop pet that can do incredible things to keep you happy while you dealing with complicated and boring tasks. 
 - By adding deadlines, YODA pet can be your trustworty partner for your time management, by constantly reminding you even when you are not aware of it.
 - it also creating a focus period for you by providing interesting and structured timer specially design for time blocking
 -  and what is a good buddy when it doesn't care for your health and keep you going while you at the tip of giving up.
-
-![Uploading image.png…]()
+https://i.pinimg.com/736x/f1/64/c4/f164c4ada82f2c28b7766ff760e4dfcf.jpg
 
 ## Tech Stack
 
