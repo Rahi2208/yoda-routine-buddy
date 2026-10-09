@@ -1,0 +1,73 @@
+// YODA database schema.
+// Tables use snake_case names in PostgreSQL (via @@map / @map),
+// while the Prisma client keeps camelCase names in JavaScript.
+
+generator client {
+  provider     = "prisma-client"
+  output       = "../src/generated/prisma"
+  moduleFormat = "esm"
+  runtime      = "nodejs"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model User {
+  id              String    @id @default(cuid())
+  name            String
+  email           String    @unique
+  passwordHash    String    @map("password_hash")
+  emailVerifiedAt DateTime? @map("email_verified_at")
+  createdAt       DateTime  @default(now()) @map("created_at")
+  updatedAt       DateTime  @updatedAt @map("updated_at")
+
+  items              Item[]
+  emailVerifications EmailVerification[]
+
+  @@map("users")
+}
+
+model EmailVerification {
+  id        String    @id @default(cuid())
+  userId    String    @map("user_id")
+  codeHash  String    @map("code_hash")
+  attempts  Int       @default(0)
+  expiresAt DateTime  @map("expires_at")
+  usedAt    DateTime? @map("used_at")
+  createdAt DateTime  @default(now()) @map("created_at")
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@map("email_verifications")
+}
+
+model Item {
+  id        String    @id @default(cuid())
+  userId    String    @map("user_id")
+  title     String
+  notes     String?
+  dueAt     DateTime? @map("due_at")
+  isDone    Boolean   @default(false) @map("is_done")
+  createdAt DateTime  @default(now()) @map("created_at")
+  updatedAt DateTime  @updatedAt @map("updated_at")
+
+  user      User       @relation(fields: [userId], references: [id], onDelete: Cascade)
+  reminders Reminder[]
+
+  @@index([userId, dueAt])
+  @@map("items")
+}
+
+model Reminder {
+  id       String    @id @default(cuid())
+  itemId   String    @map("item_id")
+  remindAt DateTime  @map("remind_at")
+  seenAt   DateTime? @map("seen_at")
+
+  item Item @relation(fields: [itemId], references: [id], onDelete: Cascade)
+
+  @@index([remindAt, seenAt])
+  @@map("reminders")
+}
