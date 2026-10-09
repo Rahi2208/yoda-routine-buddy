@@ -3,3 +3,9 @@ node_modules/
 dist/
 out/
 *.log
+
+# Prisma client is generated on install (npm install runs prisma generate)
+server/src/generated/
+
+# Electron build output
+desktop/release/

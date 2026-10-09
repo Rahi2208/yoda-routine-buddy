@@ -1,0 +1,50 @@
+{
+  "name": "yoda-desktop",
+  "productName": "YODA",
+  "version": "1.0.0",
+  "description": "YODA desktop app: the pet, timer and reminders (Electron)",
+  "private": true,
+  "main": "src/main.js",
+  "author": "Rahi2208",
+  "scripts": {
+    "dev": "electron .",
+    "start:dist": "YODA_CLIENT=dist electron .",
+    "build:client": "npm --prefix ../client run build",
+    "dist": "npm run build:client && electron-builder --linux AppImage --publish never"
+  },
+  "devDependencies": {
+    "electron": "^44.7.0",
+    "electron-builder": "^26.15.3"
+  },
+  "build": {
+    "appId": "com.rahi2208.yoda",
+    "productName": "YODA",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "src/**/*",
+      "assets/**/*",
+      "package.json"
+    ],
+    "extraResources": [
+      {
+        "from": "../client/dist",
+        "to": "client"
+      }
+    ],
+    "linux": {
+      "target": [
+        "AppImage"
+      ],
+      "category": "Utility",
+      "icon": "assets/icon.png",
+      "syncDesktopName": true
+    }
+  },
+  "desktopName": "yoda.desktop",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Rahi2208/yoda-routine-buddy.git"
+  }
+}

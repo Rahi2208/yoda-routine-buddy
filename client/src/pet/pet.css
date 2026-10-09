@@ -1,0 +1,182 @@
+/* Pet window: transparent, everything stacked from the bottom up. */
+html.pet-window,
+html.pet-window body {
+  background: transparent;
+  overflow: hidden;
+  min-height: 0;
+}
+
+.pet-stage {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+  padding: 8px 8px 6px;
+  user-select: none;
+}
+
+.pet-holder {
+  position: relative;
+  flex: none;
+}
+
+.pet-button {
+  display: block;
+  padding: 6px 6px 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+  border-radius: 40%;
+}
+
+/* Close "X": faint until you hover the pet */
+.pet-close {
+  position: absolute;
+  top: 2px;
+  right: -2px;
+  width: 22px;
+  height: 22px;
+  display: grid;
+  place-items: center;
+  border: none;
+  border-radius: 50%;
+  background: rgba(30, 42, 50, 0.55);
+  color: #fff;
+  cursor: pointer;
+  opacity: 0.22;
+  transition: opacity 0.15s;
+}
+.pet-holder:hover .pet-close,
+.pet-close:focus-visible {
+  opacity: 1;
+}
+
+/* Speech bubble with a tail pointing down to YODA's mouth */
+.bubble {
+  position: relative;
+  max-width: 260px;
+  padding: 10px 14px;
+  border: 2.5px solid #1e2a32;
+  border-radius: 18px;
+  background: #fffdf7;
+  color: #1e2a32;
+  font: 700 0.95rem/1.35 var(--font-body);
+  text-align: center;
+  cursor: pointer;
+  animation: bubble-pop 0.25s ease-out;
+}
+.bubble::after {
+  content: "";
+  position: absolute;
+  bottom: -12px;
+  left: 50%;
+  width: 18px;
+  height: 18px;
+  background: inherit;
+  border: inherit;
+  border-top: none;
+  border-left: none;
+  transform: translateX(-50%) rotate(45deg) skew(8deg, 8deg);
+  border-radius: 0 0 4px 0;
+}
+.bubble--reminder {
+  background: #fff1e6;
+  border-color: #e5484d;
+}
+.bubble--health {
+  background: #eefaf3;
+}
+.bubble--timer {
+  background: #f1eeff;
+}
+
+@keyframes bubble-pop {
+  from {
+    transform: scale(0.7) translateY(10px);
+    opacity: 0;
+  }
+  to {
+    transform: none;
+    opacity: 1;
+  }
+}
+
+/* Pomodoro panel */
+.timer {
+  width: 220px;
+  padding: 10px 12px;
+  border-radius: 16px;
+  background: #1e2a32;
+  color: #fff;
+  font-family: var(--font-body);
+}
+.timer__top {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+.timer__phase {
+  font-weight: 700;
+  color: #c9c0ff;
+}
+.timer--break .timer__phase {
+  color: #9fe0bf;
+}
+.timer__clock {
+  font-family: var(--font-display);
+  font-size: 1.9rem;
+  font-variant-numeric: tabular-nums;
+}
+.timer__bar {
+  height: 6px;
+  margin: 6px 0 10px;
+  border-radius: 3px;
+  background: rgba(255, 255, 255, 0.15);
+  overflow: hidden;
+}
+.timer__bar span {
+  display: block;
+  height: 100%;
+  background: var(--lilac);
+  transform-origin: left;
+  transition: transform 0.5s linear;
+}
+.timer--break .timer__bar span {
+  background: var(--leaf);
+}
+.timer__actions {
+  display: flex;
+  gap: 6px;
+}
+.timer__actions button {
+  flex: 1;
+  font: 700 0.85rem var(--font-body);
+  padding: 6px 0;
+  border: none;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.14);
+  color: #fff;
+  cursor: pointer;
+}
+.timer__actions button:hover {
+  background: rgba(255, 255, 255, 0.26);
+}
+
+.pet-preview-note {
+  position: fixed;
+  top: 8px;
+  left: 8px;
+  right: 8px;
+  margin: 0;
+  font-size: 0.8rem;
+  color: var(--ink-soft);
+  text-align: center;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bubble {
+    animation: none;
+  }
+}
