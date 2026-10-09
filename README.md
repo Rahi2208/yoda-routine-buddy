@@ -6,7 +6,9 @@ It is a desktop pet that can do incredible things to keep you happy while you de
 - By adding deadlines, YODA pet can be your trustworty partner for your time management, by constantly reminding you even when you are not aware of it.
 - it also creating a focus period for you by providing interesting and structured timer specially design for time blocking
 -  and what is a good buddy when it doesn't care for your health and keep you going while you at the tip of giving up.
-https://i.pinimg.com/736x/f1/64/c4/f164c4ada82f2c28b7766ff760e4dfcf.jpg
+
+![this is image](https://github.com/Rahi2208/routine-buddy/blob/main/LOCK%20IN%20_%20EXAM%20PREPARATION%20_.jpg)
+
 
 ## Tech Stack
 
