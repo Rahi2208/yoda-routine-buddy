@@ -2,19 +2,22 @@
 // shows them through the notifier, then marks them as seen.
 const HOUR = 60 * 60 * 1000;
 
+// Rounded, not floored: a "3 hours before" reminder is checked a few seconds
+// late (2h 59m left) and should still say "3 hours".
 function timeLeft(dueAt, now = Date.now()) {
   const ms = new Date(dueAt).getTime() - now;
   if (ms <= 0) return "is due now";
-  if (ms >= 24 * HOUR) {
-    const days = Math.floor(ms / (24 * HOUR));
+  if (ms < 55 * 60 * 1000) {
+    const minutes = Math.max(1, Math.round(ms / 60000));
+    return `is due in ${minutes} min`;
+  }
+
+  const hours = Math.round(ms / HOUR);
+  if (hours >= 24) {
+    const days = Math.round(hours / 24);
     return `is due in ${days} ${days === 1 ? "day" : "days"}`;
   }
-  if (ms >= HOUR) {
-    const hours = Math.floor(ms / HOUR);
-    return `is due in ${hours} ${hours === 1 ? "hour" : "hours"}`;
-  }
-  const minutes = Math.max(1, Math.floor(ms / 60000));
-  return `is due in ${minutes} min`;
+  return `is due in ${hours} ${hours === 1 ? "hour" : "hours"}`;
 }
 
 function createDeadlineReminder({ session, notify, intervalMs }) {
