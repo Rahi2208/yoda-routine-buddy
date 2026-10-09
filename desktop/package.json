@@ -10,7 +10,7 @@
     "dev": "electron .",
     "start:dist": "YODA_CLIENT=dist electron .",
     "build:client": "npm --prefix ../client run build",
-    "dist": "npm run build:client && electron-builder --linux AppImage"
+    "dist": "npm run build:client && electron-builder --linux AppImage --publish never"
   },
   "devDependencies": {
     "electron": "^44.7.0",
@@ -38,7 +38,13 @@
         "AppImage"
       ],
       "category": "Utility",
-      "icon": "assets/icon.png"
+      "icon": "assets/icon.png",
+      "syncDesktopName": true
     }
+  },
+  "desktopName": "yoda.desktop",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Rahi2208/yoda-routine-buddy.git"
   }
 }

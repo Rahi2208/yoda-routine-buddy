@@ -26,7 +26,7 @@ module.exports = {
   // Pet window sizes (decision D17: small unless the bubble or timer is open)
   petCompact: { width: 150, height: 150 },
   petExpanded: { width: 300, height: 360 },
-  petWindowTitle: "YODA Pet", // Hyprland window rules match this title
+  petWindowTitle: "yoda-pet", // Hyprland window rules match this title (no spaces on purpose)
 
   iconPath: path.join(__dirname, "..", "assets", "icon.png"),
   trayIconPath: path.join(__dirname, "..", "assets", "tray.png"),
